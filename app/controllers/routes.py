@@ -4,7 +4,7 @@ from services import services
 router = APIRouter()
 
 @router.get("/donut-chart/data")
-async def get_data():
+async def get_donut_data():
     data = services.get_donut_data()
     if data:
         return data
@@ -12,7 +12,7 @@ async def get_data():
         raise HTTPException(status_code=404, detail="Data not found")
 
 @router.get("/line-chart/data")
-async def get_data():
+async def get_line_data():
     data = services.get_line_data()
     if data:
         return data
@@ -20,7 +20,7 @@ async def get_data():
         raise HTTPException(status_code=404, detail="Data not found")
 
 @router.get("/spline-chart/data")
-async def get_data():
+async def get_spline_data():
     data = services.get_spline_data()
     if data:
         return data

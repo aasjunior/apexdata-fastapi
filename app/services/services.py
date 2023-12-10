@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+import random
 
 def get_donut_data():
     return {
@@ -55,6 +56,28 @@ def get_spline_data():
             },
         ],
         "splineAreaCategories": [(start_date + timedelta(days=i)).strftime('%Y-%m-%d') for i in range(num_days)],
+    }
+
+def get_realtime_data():
+    return {
+        "lineSeries": [
+            {
+                "name": "Bom",
+                "data": [random.randint(30, 125) for _ in range(9)],
+                "color": "#008FFB",
+            },
+            {
+                "name": "Mal",
+                "data": [random.randint(20, 63) for _ in range(9)],
+                "color": "#00E396",
+            },
+            {
+                "name": "Sem Resposta",
+                "data": [random.randint(10, 48) for _ in range(9)],
+                "color": "#FEB019",
+            },
+        ],
+        "lineCategories": [datetime.now().isoformat() for _ in range(9)],
     }
 
 def generate_monthly_data(start_value, end_value, num_days):
